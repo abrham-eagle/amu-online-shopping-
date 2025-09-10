@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<header>
-    <div class="container">
-        <img src="logo.png" alt="AMU Store Logo" class="logo">
-        <h1>🛍️ AMU Online Store</h1>
-        <p>Arba Minch University's Official Campus Store</p>
-    </div>
-</header>
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMU Online Store - Arba Minch University</title>
@@ -17,8 +10,15 @@
     <!-- Header -->
     <header>
         <div class="container">
+            <img src="images/logo.png" alt="AMU Store Logo" class="logo">
             <h1>🛍️ AMU Online Store</h1>
             <p>Arba Minch University's Official Campus Store</p>
+            
+            <!-- SEARCH BAR -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="🔍 Search products..." class="search-input">
+                <button onclick="searchProducts()" class="search-button">Search</button>
+            </div>
         </div>
     </header>
 
@@ -40,14 +40,14 @@
                 <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://via.placeholder.com/300x300/FF6B6B/white?text=Woodland+Shoes" alt="Woodland Outdoor Shoes">
+                        <img src="images/woodland-shoes.jpg" alt="Woodland Outdoor Shoes">
                     </div>
                     <div class="product-info">
                         <h3>Woodland Outdoor Shoes</h3>
                         <p class="product-code">Code: 0003</p>
                         <p class="product-desc">Premium quality outdoor shoes perfect for campus terrain</p>
                         <p class="product-price">Birr 1300.99</p>
-                        <a href="https://t.me/AMUonlinestore_bot?start=0003" class="buy-button">   
+                        <a href="https://t.me/AMUonlinestore_bot?start=0003" class="buy-button" target="_blank">
                             🛒 Buy Now
                         </a>
                     </div>
@@ -56,14 +56,14 @@
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://via.placeholder.com/300x300/4ECDC4/white?text=School+Bag" alt="Girls School Bag">
+                        <img src="images/school-bag.jpg" alt="Girls School Bag">
                     </div>
                     <div class="product-info">
                         <h3>Girls School Bag</h3>
                         <p class="product-code">Code: T001</p>
                         <p class="product-desc">Stylish and spacious bag for campus essentials</p>
                         <p class="product-price">Birr 259.99</p>
-                       <a href="https://t.me/AMUonlinestore_bot?start=T001" class="buy-button">
+                        <a href="https://t.me/AMUonlinestore_bot?start=T001" class="buy-button" target="_blank">
                             🛒 Buy Now
                         </a>
                     </div>
@@ -72,14 +72,14 @@
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://via.placeholder.com/300x300/45B7D1/white?text=Coral+T-Shirt" alt="Coral Plain T-Shirt">
+                        <img src="images/coral-tshirt.jpg" alt="Coral Plain T-Shirt">
                     </div>
                     <div class="product-info">
                         <h3>Coral Plain T-Shirt</h3>
                         <p class="product-code">Code: 0002</p>
                         <p class="product-desc">Soft cotton, comfortable fit for everyday wear</p>
                         <p class="product-price">Birr 259.99</p>
-                        <a href="https://t.me/AMUonlinestore_bot?start=0002" class="buy-button">
+                        <a href="https://t.me/AMUonlinestore_bot?start=0002" class="buy-button" target="_blank">
                             🛒 Buy Now
                         </a>
                     </div>
@@ -121,5 +121,46 @@
             <p>© 2024 AMU Online Store. For Arba Minch University Students.</p>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+    function searchProducts() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
+        const productsSection = document.getElementById('products');
+        
+        let found = false;
+        
+        productCards.forEach(card => {
+            const productName = card.querySelector('h3').textContent.toLowerCase();
+            const productCode = card.querySelector('.product-code').textContent.toLowerCase();
+            const productDesc = card.querySelector('.product-desc').textContent.toLowerCase();
+            
+            if (productName.includes(searchTerm) || 
+                productCode.includes(searchTerm) || 
+                productDesc.includes(searchTerm)) {
+                card.style.display = 'block';
+                found = true;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Scroll to products section
+        productsSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Show message if no results
+        if (!found && searchTerm) {
+            alert('No products found for: ' + searchTerm);
+        }
+    }
+
+    // Enable Enter key to search
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchProducts();
+        }
+    });
+    </script>
 </body>
 </html>
