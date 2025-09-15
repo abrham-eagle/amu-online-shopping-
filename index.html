@@ -1,258 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMU Online Store - Categories</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <img src="https://github.com/abrham-eagle/amu-online-shopping-/blob/main/logo.png?raw=true" alt="AMU Store Logo" class="logo">
-            <h1>🛍️ AMU Online Store</h1>
-            <p>Arba Minch University's Premier Shopping Destination</p>
-        </div>
-    </header>
+<script>
+// ... existing code ...
 
-    <!-- Categories Section -->
-    <section class="categories">
-        <div class="container">
-            <h2>✨ Shop by Category</h2>
-            <p>Choose your favorite category and explore amazing products</p>
-            
-            <div class="category-grid">
-                <!-- Electronics -->
-                <div class="category-card" onclick="showProducts('electronics')">
-                    <div class="category-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Electronics Center</h3>
-                    <p>Phones, Gadgets & Accessories</p>
-                    <span class="category-btn">Explore Now →</span>
-                </div>
-
-                <!-- Boys Fashion -->
-                <div class="category-card" onclick="showProducts('boys')">
-                    <div class="category-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3>Boys Fashion</h3>
-                    <p>Clothes, Shoes & Accessories</p>
-                    <span class="category-btn">Explore Now →</span>
-                </div>
-
-                <!-- Girls Fashion -->
-                <div class="category-card" onclick="showProducts('girls')">
-                    <div class="category-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Girls Fashion</h3>
-                    <p>Dresses, Cosmetics & More</p>
-                    <span class="category-btn">Explore Now →</span>
-                </div>
-
-                <!-- Laptops -->
-                <div class="category-card" onclick="showProducts('laptops')">
-                    <div class="category-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Laptop & Computer</h3>
-                    <p>Tech Gadgets & Accessories</p>
-                    <span class="category-btn">Explore Now →</span>
-                </div>
-
-                <!-- Home Essentials -->
-                <div class="category-card" onclick="showProducts('home')">
-                    <div class="category-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Home Essentials</h3>
-                    <p>Daily Needs & Utilities</p>
-                    <span class="category-btn">Explore Now →</span>
-                </div>
-
-                <!-- Campus Supplies -->
-                <div class="category-card" onclick="showProducts('campus')">
-                    <div class="category-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Campus Supplies</h3>
-                    <p>Student Must-Haves</p>
-                    <span class="category-btn">Explore Now →</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section (Hidden Initially) -->
-    <section id="productsSection" class="products hidden">
-        <div class="container">
-            <div class="section-header">
-                <button onclick="showCategories()" class="back-btn">
-                    ← Back to Categories
-                </button>
-                <h2 id="categoryTitle">Products</h2>
-            </div>
-            
-            <div class="product-grid" id="productGrid">
-                <!-- Products will be loaded here dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <!-- How to Order -->
-    <section class="how-to-order">
-        <div class="container">
-            <h2>🚀 How to Order</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">1</div>
-                    <h4>Choose Category</h4>
-                    <p>Select your preferred shopping category</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">2</div>
-                    <h4>Pick Product</h4>
-                    <p>Browse and choose your desired item</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">3</div>
-                    <h4>Remember Code</h4>
-                    <p>Note down the product code</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">4</div>
-                    <h4>Order via Bot</h4>
-                    <p>Message @AMUonlinestore_bot with the code</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>📍 Delivery Campuses</h4>
-                    <p>Main, Abaya, Culfo, Chamo, Nechisar</p>
-                </div>
-                <div class="footer-section">
-                    <h4>📞 Contact</h4>
-                    <p>0944836963</p>
-                    <p>@bald_eagle12</p>
-                </div>
-                <div class="footer-section">
-                    <h4>🛍️ Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
-                </div>
-            </div>
-            <p class="copyright">© 2024 AMU Online Store. For Arba Minch University Students.</p>
-        </div>
-    </footer>
-
-    <script>
-    // Sample product data
-    const products = {
-        electronics: [
-            {code: "E001", name: "Wireless Earbuds", price: "Birr 459.99", image: "https://via.placeholder.com/300x300/3498db/white?text=Wireless+Earbuds", desc: "High-quality sound wireless earbuds"},
-            {code: "E002", name: "Power Bank", price: "Birr 299.99", image: "https://via.placeholder.com/300x300/e74c3c/white?text=Power+Bank", desc: "10000mAh fast charging power bank"},
-            {code: "E003", name: "Smart Watch", price: "Birr 899.99", image: "https://via.placeholder.com/300x300/2ecc71/white?text=Smart+Watch", desc: "Fitness tracker with heart rate monitor"}
-        ],
-        boys: [
-            {code: "B001", name: "Casual T-Shirt", price: "Birr 259.99", image: "https://via.placeholder.com/300x300/9b59b6/white?text=Casual+T-Shirt", desc: "100% cotton comfortable t-shirt"},
-            {code: "B002", name: "Sports Shoes", price: "Birr 799.99", image: "https://via.placeholder.com/300x300/f39c12/white?text=Sports+Shoes", desc: "Lightweight sports running shoes"},
-            {code: "B003", name: "Jeans Pant", price: "Birr 459.99", image: "https://via.placeholder.com/300x300/34495e/white?text=Jeans+Pant", desc: "Comfortable denim jeans"}
-        ],
-        girls: [
-            {code: "G001", name: "Summer Dress", price: "Birr 599.99", image: "https://via.placeholder.com/300x300/e91e63/white?text=Summer+Dress", desc: "Beautiful floral summer dress"},
-            {code: "G002", name: "Beauty Kit", price: "Birr 399.99", image: "https://via.placeholder.com/300x300/9c27b0/white?text=Beauty+Kit", desc: "Complete makeup kit set"},
-            {code: "G003", name: "Handbag", price: "Birr 459.99", image: "https://via.placeholder.com/300x300/ff5722/white?text=Handbag", desc: "Stylish leather handbag"}
-        ],
-        laptops: [
-            {code: "L001", name: "Laptop Bag", price: "Birr 399.99", image: "https://via.placeholder.com/300x300/607d8b/white?text=Laptop+Bag", desc: "Waterproof laptop backpack"},
-            {code: "L002", name: "Wireless Mouse", price: "Birr 199.99", image: "https://via.placeholder.com/300x300/795548/white?text=Wireless+Mouse", desc: "Ergonomic wireless mouse"},
-            {code: "L003", name: "USB Hub", price: "Birr 159.99", image: "https://via.placeholder.com/300x300/3f51b5/white?text=USB+Hub", desc: "4-port USB 3.0 hub"}
-        ],
-        home: [
-            {code: "H001", name: "Water Bottle", price: "Birr 129.99", image: "https://via.placeholder.com/300x300/00bcd4/white?text=Water+Bottle", desc: "Insulated stainless steel bottle"},
-            {code: "H002", name: "Desk Lamp", price: "Birr 179.99", image: "https://via.placeholder.com/300x300/ff9800/white?text=Desk+Lamp", desc: "LED adjustable desk lamp"},
-            {code: "H003", name: "Storage Box", price: "Birr 229.99", image: "https://via.placeholder.com/300x300/795548/white?text=Storage+Box", desc: "Plastic storage organizer"}
-        ],
-        campus: [
-            {code: "C001", name: "Notebook Set", price: "Birr 99.99", image: "https://via.placeholder.com/300x300/4caf50/white?text=Notebook+Set", desc: "5-piece college notebook set"},
-            {code: "C002", name: "Pen Set", price: "Birr 79.99", image: "https://via.placeholder.com/300x300/2196f3/white?text=Pen+Set", desc: "12-color gel pen collection"},
-            {code: "C003", name: "Backpack", price: "Birr 459.99", image: "https://via.placeholder.com/300x300/ff5722/white?text=Backpack", desc: "Water-resistant college backpack"}
-        ]
+function showProducts(category) {
+    const categoryTitles = {
+        electronics: "📱 Electronics Center",
+        boys: "👔 Boys Fashion",
+        girls: "👗 Girls Fashion", 
+        laptops: "💻 Laptop & Computer",
+        home: "🏠 Home Essentials",
+        campus: "🎒 Campus Supplies"
     };
 
-    function showProducts(category) {
-        const categoryTitles = {
-            electronics: "📱 Electronics Center",
-            boys: "👔 Boys Fashion",
-            girls: "👗 Girls Fashion", 
-            laptops: "💻 Laptop & Computer",
-            home: "🏠 Home Essentials",
-            campus: "🎒 Campus Supplies"
-        };
-
-        // Update category title
-        document.getElementById('categoryTitle').textContent = categoryTitles[category];
-        
-        // Show products section
-        document.getElementById('productsSection').classList.remove('hidden');
-        document.querySelector('.categories').classList.add('hidden');
-        document.querySelector('.how-to-order').classList.add('hidden');
-        
-        // Load products
-        const productGrid = document.getElementById('productGrid');
-        productGrid.innerHTML = '';
-        
-        products[category].forEach(product => {
-            productGrid.innerHTML += `
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                    <div class="product-info">
-                        <h3>${product.name}</h3>
-                        <p class="product-code">Code: <span class="code-highlight">${product.code}</span></p>
-                        <p class="product-desc">${product.desc}</p>
-                        <p class="product-price">${product.price}</p>
-                        <div class="buy-instruction">
-                            📝 <strong>Remember code: ${product.code}</strong>
-                        </div>
-                        <a href="https://t.me/AMUonlinestore_bot?start=${product.code}" class="buy-button" target="_blank">
-                            🛒 Buy Now
-                        </a>
-                    </div>
+    // Update category title
+    document.getElementById('categoryTitle').textContent = categoryTitles[category];
+    
+    // Show products section
+    document.getElementById('productsSection').classList.remove('hidden');
+    document.querySelector('.categories').classList.add('hidden');
+    document.querySelector('.how-to-order').classList.add('hidden');
+    
+    // Load products
+    const productGrid = document.getElementById('productGrid');
+    productGrid.innerHTML = '';
+    
+    products[category].forEach(product => {
+        productGrid.innerHTML += `
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
                 </div>
-            `;
-        });
-    }
-
-    function showCategories() {
-        document.getElementById('productsSection').classList.add('hidden');
-        document.querySelector('.categories').classList.remove('hidden');
-        document.querySelector('.how-to-order').classList.remove('hidden');
-    }
-
-    // Add smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+                <div class="product-info">
+                    <h3>${product.name}</h3>
+                    <p class="product-code">Code: <span class="code-highlight">${product.code}</span></p>
+                    <p class="product-desc">${product.desc}</p>
+                    <p class="product-price">${product.price}</p>
+                    <div class="buy-instruction">
+                        📝 <strong>Remember code: ${product.code}</strong>
+                    </div>
+                    <a href="https://t.me/AMUonlinestore_bot?start=${product.code}" class="buy-button" target="_blank">
+                        🛒 Buy Now
+                    </a>
+                </div>
+            </div>
+        `;
     });
-    </script>
-</body>
-</html>
+
+    // ✅ AUTO-SCROLL TO PRODUCTS SECTION (NEW FIX!)
+    setTimeout(() => {
+        document.getElementById('productsSection').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }, 100);
+}
+
+// ... rest of the code ...
+</script>
