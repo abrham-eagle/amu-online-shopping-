@@ -1,343 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMU Online Store - Arba Minch University</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <!-- CIRCLE LOGO -->
-            <img src="https://github.com/abrham-eagle/amu-online-shopping-/blob/main/logo.png?raw=true" alt="AMU Store Logo" class="logo circle-logo">
-            <h1><i class="fas fa-shopping-bag"></i> AMU Online Store</h1>
-            <p>Arba Minch University's Premier Shopping Destination</p>
-        </div>
-    </header>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e6e6e6;
+    background: #0f1111;
+    min-height: 100vh;
+}
 
-    <!-- Categories Section -->
-    <section class="categories">
-        <div class="container">
-            <h2><i class="fas fa-layer-group"></i> Shop by Category</h2>
-            <p>Choose your favorite category and explore amazing products</p>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-            <div class="category-grid">
-                <!-- Electronics -->
-                <div class="category-card" onclick="showProducts('electronics')">
-                    <div class="category-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Electronics Center</h3>
-                    <p>Phones, Gadgets & Accessories</p>
-                    <span class="category-btn">Explore Now <i class="fas fa-arrow-right"></i></span>
-                </div>
+/* Header - With CIRCLE LOGO */
+header {
+    background: #131a22;
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom: 1px solid #37475a;
+}
 
-                <!-- Boys Fashion -->
-                <div class="category-card" onclick="showProducts('boys')">
-                    <div class="category-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3>Boys Fashion</h3>
-                    <p>Clothes, Shoes & Accessories</p>
-                    <span class="category-btn">Explore Now <i class="fas fa-arrow-right"></i></span>
-                </div>
+/* CIRCLE LOGO STYLES */
+.circle-logo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff9900;
+    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+    margin-bottom: 1rem;
+}
 
-                <!-- Girls Fashion -->
-                <div class="category-card" onclick="showProducts('girls')">
-                    <div class="category-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Girls Fashion</h3>
-                    <p>Dresses, Cosmetics & More</p>
-                    <span class="category-btn">Explore Now <i class="fas fa-arrow-right"></i></span>
-                </div>
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: #ff9900;
+    font-weight: bold;
+}
 
-                <!-- Laptops -->
-                <div class="category-card" onclick="showProducts('laptops')">
-                    <div class="category-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Laptop & Computer</h3>
-                    <p>Tech Gadgets & Accessories</p>
-                    <span class="category-btn">Explore Now <i class="fas fa-arrow-right"></i></span>
-                </div>
+header p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 1rem;
+}
 
-                <!-- Home Essentials -->
-                <div class="category-card" onclick="showProducts('home')">
-                    <div class="category-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Home Essentials</h3>
-                    <p>Daily Needs & Utilities</p>
-                    <span class="category-btn">Explore Now <i class="fas fa-arrow-right"></i></span>
-                </div>
+/* ... (keep all your previous categories, products, etc. styles from earlier) ... */
 
-                <!-- Campus Supplies -->
-                <div class="category-card" onclick="showProducts('campus')">
-                    <div class="category-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Campus Supplies</h3>
-                    <p>Student Must-Haves</p>
-                    <span class="category-btn">Explore Now <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Product Gallery Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    animation: fadeIn 0.3s;
+}
 
-    <!-- Products Section (Hidden Initially) -->
-    <section id="productsSection" class="products hidden">
-        <div class="container">
-            <div class="section-header">
-                <button onclick="showCategories()" class="back-btn">
-                    <i class="fas fa-arrow-left"></i> Back to Categories
-                </button>
-                <h2 id="categoryTitle">Products</h2>
-            </div>
-            <div class="product-grid" id="productGrid">
-                <!-- Products will be loaded here by JavaScript -->
-            </div>
-        </div>
-    </section>
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-    <!-- How to Order -->
-    <section class="how-to-order">
-        <div class="container">
-            <h2><i class="fas fa-shopping-cart"></i> How to Order</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">1</div>
-                    <h4>Choose Category</h4>
-                    <p>Select your preferred shopping category</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">2</div>
-                    <h4>Pick Product</h4>
-                    <p>Browse and choose your desired item</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">3</div>
-                    <h4>Remember Code</h4>
-                    <p>Note down the product code</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">4</div>
-                    <h4>Order via Bot</h4>
-                    <p>Message @AMUonlinestore_bot with the code</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.modal-content {
+    position: relative;
+    margin: 2% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    animation: slideIn 0.3s;
+}
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4><i class="fas fa-truck"></i> Delivery Campuses</h4>
-                    <p>Main, Abaya, Culfo, Chamo, Nechisar</p>
-                </div>
-                <div class="footer-section">
-                    <h4><i class="fas fa-phone"></i> Contact</h4>
-                    <p>0944836963</p>
-                    <p>@bald_eagle12</p>
-                </div>
-                <div class="footer-section">
-                    <h4><i class="fas fa-heart"></i> Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
-                </div>
-            </div>
-            <p class="copyright">© 2024 AMU Online Store. For Arba Minch University Students.</p>
-        </div>
-    </footer>
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
 
-    <!-- Product Gallery Modal -->
-    <div id="galleryModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeGallery()">&times;</span>
-            <div class="gallery-container">
-                <img id="galleryImage" src="" alt="Product Image">
-                <div class="gallery-controls">
-                    <button onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i> Previous</button>
-                    <span id="imageCounter">1/3</span>
-                    <button onclick="changeImage(1)">Next <i class="fas fa-chevron-right"></i></button>
-                </div>
-                <div class="gallery-product-info">
-                    <h3 id="galleryProductName"></h3>
-                    <p>Code: <span id="galleryProductCode"></span></p>
-                    <p>Price: <span id="galleryProductPrice"></span></p>
-                    <div class="gallery-instruction">
-                        <strong><i class="fas fa-info-circle"></i> Remember this code to order!</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+.close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
 
-    <script>
-        // Sample product data with MULTIPLE IMAGES
-        const products = {
-            electronics: [
-                { 
-                    code: "E001", 
-                    name: "Wireless Earbuds", 
-                    price: "Birr 459.99", 
-                    images: [
-                        "https://via.placeholder.com/600x600/3498db/white?text=Earbuds+Front",
-                        "https://via.placeholder.com/600x600/2980b9/white?text=Earbuds+Side",
-                        "https://via.placeholder.com/600x600/34495e/white?text=Earbuds+Case"
-                    ], 
-                    desc: "High-quality sound wireless earbuds" 
-                }
-            ],
-            boys: [
-                { 
-                    code: "B001", 
-                    name: "Casual T-Shirt", 
-                    price: "Birr 259.99", 
-                    images: [
-                        "https://via.placeholder.com/600x600/9b59b6/white?text=T-Shirt+Front",
-                        "https://via.placeholder.com/600x600/8e44ad/white?text=T-Shirt+Back"
-                    ], 
-                    desc: "100% cotton comfortable t-shirt" 
-                }
-            ]
-            // Add other categories here...
-        };
+.close:hover {
+    color: #ff9900;
+}
 
-        let currentGallery = {
-            images: [],
-            currentIndex: 0,
-            productName: '',
-            productCode: '',
-            productPrice: ''
-        };
+.gallery-container {
+    background: #131a22;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #37475a;
+}
 
-        function showProducts(category) {
-            const categoryTitles = {
-                electronics: "<i class='fas fa-mobile-alt'></i> Electronics Center",
-                boys: "<i class='fas fa-tshirt'></i> Boys Fashion",
-                girls: "<i class='fas fa-heart'></i> Girls Fashion",
-                laptops: "<i class='fas fa-laptop'></i> Laptop & Computer",
-                home: "<i class='fas fa-home'></i> Home Essentials",
-                campus: "<i class='fas fa-book'></i> Campus Supplies"
-            };
+#galleryImage {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    display: block;
+}
 
-            document.getElementById('categoryTitle').innerHTML = categoryTitles[category];
-            document.getElementById('productsSection').classList.remove('hidden');
-            document.querySelector('.categories').classList.add('hidden');
-            document.querySelector('.how-to-order').classList.add('hidden');
+.gallery-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #232f3e;
+    border-top: 1px solid #37475a;
+}
 
-            const productGrid = document.getElementById('productGrid');
-            productGrid.innerHTML = '';
+.gallery-controls button {
+    background: #ff9900;
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
 
-            products[category].forEach(product => {
-                productGrid.innerHTML += `
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="${product.images[0]}" alt="${product.name}" onclick="openGallery('${product.code}', ${JSON.stringify(product.images)}, '${product.name}', '${product.price}')">
-                    </div>
-                    <div class="product-info">
-                        <h3>${product.name}</h3>
-                        <p class="product-code">Code: <span class="code-highlight">${product.code}</span></p>
-                        <p class="product-desc">${product.desc}</p>
-                        <p class="product-price">${product.price}</p>
-                        <div class="buy-instruction">
-                            <strong><i class="fas fa-info-circle"></i> Remember this code: ${product.code}</strong>
-                        </div>
-                        <a href="https://t.me/AMUonlinestore_bot?start=${product.code}" class="buy-button" target="_blank">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                    </div>
-                </div>
-                `;
-            });
+.gallery-controls button:hover {
+    background: #ffaa33;
+}
 
-            setTimeout(() => {
-                document.getElementById('productsSection').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }, 100);
-        }
+#imageCounter {
+    font-weight: bold;
+    color: #cccccc;
+}
 
-        function openGallery(productCode, images, productName, productPrice) {
-            currentGallery.images = images;
-            currentGallery.currentIndex = 0;
-            currentGallery.productName = productName;
-            currentGallery.productCode = productCode;
-            currentGallery.productPrice = productPrice;
+.gallery-product-info {
+    padding: 20px;
+    text-align: center;
+    background: #232f3e;
+}
 
-            updateGallery();
-            document.getElementById('galleryModal').style.display = 'block';
-        }
+.gallery-product-info h3 {
+    color: #ff9900;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
 
-        function closeGallery() {
-            document.getElementById('galleryModal').style.display = 'none';
-        }
+.gallery-product-info p {
+    color: #cccccc;
+    margin-bottom: 5px;
+}
 
-        function changeImage(direction) {
-            currentGallery.currentIndex += direction;
-            
-            if (currentGallery.currentIndex < 0) {
-                currentGallery.currentIndex = currentGallery.images.length - 1;
-            } else if (currentGallery.currentIndex >= currentGallery.images.length) {
-                currentGallery.currentIndex = 0;
-            }
-            
-            updateGallery();
-        }
+.gallery-instruction {
+    background: #37475a;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 15px;
+    border-left: 4px solid #ff9900;
+}
 
-        function updateGallery() {
-            const galleryImage = document.getElementById('galleryImage');
-            const imageCounter = document.getElementById('imageCounter');
-            const productName = document.getElementById('galleryProductName');
-            const productCode = document.getElementById('galleryProductCode');
-            const productPrice = document.getElementById('galleryProductPrice');
+/* Responsive design for gallery */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    
+    .gallery-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #galleryImage {
+        max-height: 50vh;
+    }
+}
 
-            galleryImage.src = currentGallery.images[currentGallery.currentIndex];
-            imageCounter.textContent = `${currentGallery.currentIndex + 1}/${currentGallery.images.length}`;
-            productName.textContent = currentGallery.productName;
-            productCode.textContent = currentGallery.productCode;
-            productPrice.textContent = currentGallery.productPrice;
-        }
-
-        function showCategories() {
-            document.getElementById('productsSection').classList.add('hidden');
-            document.querySelector('.categories').classList.remove('hidden');
-            document.querySelector('.how-to-order').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('galleryModal');
-            if (event.target === modal) {
-                closeGallery();
-            }
-        }
-
-        // Keyboard navigation for gallery
-        document.addEventListener('keydown', function(e) {
-            const modal = document.getElementById('galleryModal');
-            if (modal.style.display === 'block') {
-                if (e.key === 'ArrowLeft') {
-                    changeImage(-1);
-                } else if (e.key === 'ArrowRight') {
-                    changeImage(1);
-                } else if (e.key === 'Escape') {
-                    closeGallery();
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+/* ... (keep the rest of your responsive styles) ... */
