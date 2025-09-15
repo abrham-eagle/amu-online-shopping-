@@ -12,7 +12,8 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <img src="https://github.com/abrham-eagle/amu-online-shopping-/blob/main/logo.png?raw=true" alt="AMU Store Logo" class="logo">
+            <!-- CIRCLE LOGO -->
+            <img src="https://github.com/abrham-eagle/amu-online-shopping-/blob/main/logo.png?raw=true" alt="AMU Store Logo" class="logo circle-logo">
             <h1><i class="fas fa-shopping-bag"></i> AMU Online Store</h1>
             <p>Arba Minch University's Premier Shopping Destination</p>
         </div>
@@ -158,39 +159,66 @@
         </div>
     </footer>
 
+    <!-- Product Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGallery()">&times;</span>
+            <div class="gallery-container">
+                <img id="galleryImage" src="" alt="Product Image">
+                <div class="gallery-controls">
+                    <button onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i> Previous</button>
+                    <span id="imageCounter">1/3</span>
+                    <button onclick="changeImage(1)">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="gallery-product-info">
+                    <h3 id="galleryProductName"></h3>
+                    <p>Code: <span id="galleryProductCode"></span></p>
+                    <p>Price: <span id="galleryProductPrice"></span></p>
+                    <div class="gallery-instruction">
+                        <strong><i class="fas fa-info-circle"></i> Remember this code to order!</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Sample product data
+        // Sample product data with MULTIPLE IMAGES
         const products = {
             electronics: [
-                { code: "E001", name: "Wireless Earbuds", price: "Birr 459.99", image: "https://via.placeholder.com/300x300/3498db/white?text=Wireless+Earbuds", desc: "High-quality sound wireless earbuds" },
-                { code: "E002", name: "Power Bank", price: "Birr 299.99", image: "https://via.placeholder.com/300x300/e74c3c/white?text=Power+Bank", desc: "10000mAh fast charging power bank" },
-                { code: "E003", name: "Smart Watch", price: "Birr 899.99", image: "https://via.placeholder.com/300x300/2ecc71/white?text=Smart+Watch", desc: "Fitness tracker with heart rate monitor" }
+                { 
+                    code: "E001", 
+                    name: "Wireless Earbuds", 
+                    price: "Birr 459.99", 
+                    images: [
+                        "https://via.placeholder.com/600x600/3498db/white?text=Earbuds+Front",
+                        "https://via.placeholder.com/600x600/2980b9/white?text=Earbuds+Side",
+                        "https://via.placeholder.com/600x600/34495e/white?text=Earbuds+Case"
+                    ], 
+                    desc: "High-quality sound wireless earbuds" 
+                }
             ],
             boys: [
-                { code: "B001", name: "Casual T-Shirt", price: "Birr 259.99", image: "https://via.placeholder.com/300x300/9b59b6/white?text=Casual+T-Shirt", desc: "100% cotton comfortable t-shirt" },
-                { code: "B002", name: "Sports Shoes", price: "Birr 799.99", image: "https://via.placeholder.com/300x300/f39c12/white?text=Sports+Shoes", desc: "Lightweight sports running shoes" },
-                { code: "B003", name: "Jeans Pant", price: "Birr 459.99", image: "https://via.placeholder.com/300x300/34495e/white?text=Jeans+Pant", desc: "Comfortable denim jeans" }
-            ],
-            girls: [
-                { code: "G001", name: "Summer Dress", price: "Birr 599.99", image: "https://via.placeholder.com/300x300/e91e63/white?text=Summer+Dress", desc: "Beautiful floral summer dress" },
-                { code: "G002", name: "Beauty Kit", price: "Birr 399.99", image: "https://via.placeholder.com/300x300/9c27b0/white?text=Beauty+Kit", desc: "Complete makeup kit set" },
-                { code: "G003", name: "Handbag", price: "Birr 459.99", image: "https://via.placeholder.com/300x300/ff5722/white?text=Handbag", desc: "Stylish leather handbag" }
-            ],
-            laptops: [
-                { code: "L001", name: "Laptop Bag", price: "Birr 399.99", image: "https://via.placeholder.com/300x300/607d8b/white?text=Laptop+Bag", desc: "Waterproof laptop backpack" },
-                { code: "L002", name: "Wireless Mouse", price: "Birr 199.99", image: "https://via.placeholder.com/300x300/795548/white?text=Wireless+Mouse", desc: "Ergonomic wireless mouse" },
-                { code: "L003", name: "USB Hub", price: "Birr 159.99", image: "https://via.placeholder.com/300x300/3f51b5/white?text=USB+Hub", desc: "4-port USB 3.0 hub" }
-            ],
-            home: [
-                { code: "H001", name: "Water Bottle", price: "Birr 129.99", image: "https://via.placeholder.com/300x300/00bcd4/white?text=Water+Bottle", desc: "Insulated stainless steel bottle" },
-                { code: "H002", name: "Desk Lamp", price: "Birr 179.99", image: "https://via.placeholder.com/300x300/ff9800/white?text=Desk+Lamp", desc: "LED adjustable desk lamp" },
-                { code: "H003", name: "Storage Box", price: "Birr 229.99", image: "https://via.placeholder.com/300x300/795548/white?text=Storage+Box", desc: "Plastic storage organization" }
-            ],
-            campus: [
-                { code: "C001", name: "Notebook Set", price: "Birr 99.99", image: "https://via.placeholder.com/300x300/4caf50/white?text=Notebook+Set", desc: "5-piece college notebook set" },
-                { code: "C002", name: "Pen Set", price: "Birr 79.99", image: "https://via.placeholder.com/300x300/2196f3/white?text=Pen+Set", desc: "12-color gel pen collection" },
-                { code: "C003", name: "Backpack", price: "Birr 459.99", image: "https://via.placeholder.com/300x300/ff5722/white?text=Backpack", desc: "Water-resistant college backpack" }
+                { 
+                    code: "B001", 
+                    name: "Casual T-Shirt", 
+                    price: "Birr 259.99", 
+                    images: [
+                        "https://via.placeholder.com/600x600/9b59b6/white?text=T-Shirt+Front",
+                        "https://via.placeholder.com/600x600/8e44ad/white?text=T-Shirt+Back"
+                    ], 
+                    desc: "100% cotton comfortable t-shirt" 
+                }
             ]
+            // Add other categories here...
+        };
+
+        let currentGallery = {
+            images: [],
+            currentIndex: 0,
+            productName: '',
+            productCode: '',
+            productPrice: ''
         };
 
         function showProducts(category) {
@@ -203,15 +231,11 @@
                 campus: "<i class='fas fa-book'></i> Campus Supplies"
             };
 
-            // Update category title
             document.getElementById('categoryTitle').innerHTML = categoryTitles[category];
-
-            // Show products section, hide categories and how-to-order
             document.getElementById('productsSection').classList.remove('hidden');
             document.querySelector('.categories').classList.add('hidden');
             document.querySelector('.how-to-order').classList.add('hidden');
 
-            // Load products
             const productGrid = document.getElementById('productGrid');
             productGrid.innerHTML = '';
 
@@ -219,7 +243,7 @@
                 productGrid.innerHTML += `
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}">
+                        <img src="${product.images[0]}" alt="${product.name}" onclick="openGallery('${product.code}', ${JSON.stringify(product.images)}, '${product.name}', '${product.price}')">
                     </div>
                     <div class="product-info">
                         <h3>${product.name}</h3>
@@ -237,7 +261,6 @@
                 `;
             });
 
-            // ✅✅✅ AUTO-SCROLL TO PRODUCTS SECTION (FIXED!)
             setTimeout(() => {
                 document.getElementById('productsSection').scrollIntoView({
                     behavior: 'smooth',
@@ -246,18 +269,75 @@
             }, 100);
         }
 
+        function openGallery(productCode, images, productName, productPrice) {
+            currentGallery.images = images;
+            currentGallery.currentIndex = 0;
+            currentGallery.productName = productName;
+            currentGallery.productCode = productCode;
+            currentGallery.productPrice = productPrice;
+
+            updateGallery();
+            document.getElementById('galleryModal').style.display = 'block';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentGallery.currentIndex += direction;
+            
+            if (currentGallery.currentIndex < 0) {
+                currentGallery.currentIndex = currentGallery.images.length - 1;
+            } else if (currentGallery.currentIndex >= currentGallery.images.length) {
+                currentGallery.currentIndex = 0;
+            }
+            
+            updateGallery();
+        }
+
+        function updateGallery() {
+            const galleryImage = document.getElementById('galleryImage');
+            const imageCounter = document.getElementById('imageCounter');
+            const productName = document.getElementById('galleryProductName');
+            const productCode = document.getElementById('galleryProductCode');
+            const productPrice = document.getElementById('galleryProductPrice');
+
+            galleryImage.src = currentGallery.images[currentGallery.currentIndex];
+            imageCounter.textContent = `${currentGallery.currentIndex + 1}/${currentGallery.images.length}`;
+            productName.textContent = currentGallery.productName;
+            productCode.textContent = currentGallery.productCode;
+            productPrice.textContent = currentGallery.productPrice;
+        }
+
         function showCategories() {
-            // Show categories and how-to-order, hide products
             document.getElementById('productsSection').classList.add('hidden');
             document.querySelector('.categories').classList.remove('hidden');
             document.querySelector('.how-to-order').classList.remove('hidden');
-
-            // Scroll back to top smoothly
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('galleryModal');
+            if (event.target === modal) {
+                closeGallery();
+            }
+        }
+
+        // Keyboard navigation for gallery
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('galleryModal');
+            if (modal.style.display === 'block') {
+                if (e.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeImage(1);
+                } else if (e.key === 'Escape') {
+                    closeGallery();
+                }
+            }
+        });
     </script>
 </body>
 </html>
