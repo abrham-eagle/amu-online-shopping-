@@ -1,6 +1,4 @@
 <script>
-// ... existing code ...
-
 function showProducts(category) {
     const categoryTitles = {
         electronics: "📱 Electronics Center",
@@ -45,14 +43,12 @@ function showProducts(category) {
         `;
     });
 
-    // ✅ AUTO-SCROLL TO PRODUCTS SECTION (NEW FIX!)
+    // ✅ AUTO-SCROLL TO PRODUCTS SECTION
     setTimeout(() => {
-        document.getElementById('productsSection').scrollIntoView({ 
+        document.getElementById('productsSection').scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
     }, 100);
 }
-
-// ... rest of the code ...
 </script>
