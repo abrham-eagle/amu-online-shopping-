@@ -7,8 +7,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #ffffff;
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+    color: #e6e6e6;
+    background: #0f1111; /* Amazon dark background */
     min-height: 100vh;
 }
 
@@ -20,27 +20,23 @@ body {
 
 /* Header - Amazon Style */
 header {
-    background: linear-gradient(135deg, #131a22 0%, #232f3e 100%);
+    background: #131a22; /* Amazon header color */
     padding: 1.5rem 0;
     text-align: center;
-    border-bottom: 2px solid #ff9900;
+    border-bottom: 1px solid #37475a;
 }
 
 .logo {
     height: 70px;
     margin-bottom: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+    border-radius: 8px;
 }
 
 header h1 {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ff9900; /* Amazon orange */
     font-weight: bold;
-    text-shadow: 0 2px 10px rgba(255, 153, 0, 0.3);
 }
 
 header p {
@@ -49,30 +45,27 @@ header p {
     margin-bottom: 1rem;
 }
 
-/* Categories Section - Dark Theme */
+/* Categories Section - Amazon Dark Theme */
 .categories {
     padding: 3rem 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: #131a22;
     margin: 1rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-    border: 1px solid #333;
+    border-radius: 8px;
+    border: 1px solid #37475a;
 }
 
 .categories h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ff9900; /* Amazon orange */
 }
 
 .categories > .container > p {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #cccccc;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .category-grid {
@@ -83,20 +76,20 @@ header p {
 }
 
 .category-card {
-    background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
-    color: white;
+    background: #232f3e; /* Amazon card background */
+    color: #ffffff;
     padding: 2rem 1.5rem;
-    border-radius: 15px;
+    border-radius: 8px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    border: 1px solid #455a64;
+    border: 1px solid #37475a;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .category-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 12px 30px rgba(255, 153, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(255, 153, 0, 0.2);
     border-color: #ff9900;
 }
 
@@ -120,7 +113,7 @@ header p {
 }
 
 .category-btn {
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
+    background: #ff9900;
     color: #000000;
     padding: 10px 20px;
     border-radius: 20px;
@@ -131,18 +124,17 @@ header p {
 }
 
 .category-card:hover .category-btn {
+    background: #ffaa33;
     transform: translateX(5px);
-    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4);
 }
 
-/* Products Section - Amazon Dark */
+/* Products Section - Amazon Style */
 .products {
     padding: 3rem 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: #131a22;
     margin: 1rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-    border: 1px solid #333;
+    border-radius: 8px;
+    border: 1px solid #37475a;
 }
 
 .products.hidden {
@@ -153,33 +145,32 @@ header p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2rem;
-    padding: 0 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #37475a;
 }
 
 .back-btn {
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
+    background: #ff9900;
     color: #000000;
-    padding: 12px 25px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+    font-size: 0.9rem;
 }
 
 .back-btn:hover {
-    transform: translateX(-5px);
-    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+    background: #ffaa33;
+    transform: translateX(-3px);
 }
 
 #categoryTitle {
     font-size: 2.2rem;
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ff9900;
     font-weight: bold;
 }
 
@@ -187,21 +178,20 @@ header p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    padding: 0 1rem;
 }
 
 .product-card {
-    background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
-    border-radius: 15px;
+    background: #232f3e;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
-    border: 1px solid #455a64;
+    border: 1px solid #37475a;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(255, 153, 0, 0.3);
+    box-shadow: 0 8px 24px rgba(255, 153, 0, 0.2);
     border-color: #ff9900;
 }
 
@@ -209,7 +199,7 @@ header p {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-bottom: 2px solid #333;
+    border-bottom: 1px solid #37475a;
 }
 
 .product-info {
@@ -217,7 +207,7 @@ header p {
 }
 
 .product-info h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 0.8rem;
     color: #ffffff;
     font-weight: bold;
@@ -230,105 +220,100 @@ header p {
 }
 
 .code-highlight {
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
-    padding: 4px 12px;
+    background: #ff9900;
+    color: #000000;
+    padding: 4px 10px;
     border-radius: 12px;
     font-weight: bold;
-    color: #000000;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .product-desc {
     color: #aaaaaa;
     margin-bottom: 1.2rem;
     line-height: 1.5;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .product-price {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: #ff9900;
     margin-bottom: 1.2rem;
-    text-shadow: 0 2px 5px rgba(255, 153, 0, 0.3);
 }
 
 .buy-instruction {
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
-    color: #000000;
+    background: #37475a;
+    color: #ffffff;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 6px;
     margin-bottom: 1.2rem;
     text-align: center;
-    font-weight: bold;
     font-size: 0.9rem;
+    border-left: 4px solid #ff9900;
 }
 
 .buy-button {
     display: block;
-    background: linear-gradient(135deg, #00a650, #00cc66);
-    color: white;
-    padding: 14px 25px;
+    background: #ff9900;
+    color: #000000;
+    padding: 14px 20px;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 20px;
     text-align: center;
     font-weight: bold;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 166, 80, 0.3);
+    font-size: 0.95rem;
 }
 
 .buy-button:hover {
+    background: #ffaa33;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 166, 80, 0.4);
+    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
 }
 
-/* How to Order - Dark Theme */
+/* How to Order Section */
 .how-to-order {
     padding: 3rem 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: #131a22;
     margin: 1rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-    border: 1px solid #333;
+    border-radius: 8px;
+    border: 1px solid #37475a;
 }
 
 .how-to-order h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 2rem;
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-bottom: 3rem;
+    color: #ff9900;
 }
 
 .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
-    padding: 0 1rem;
 }
 
 .step {
     text-align: center;
     padding: 2rem 1.5rem;
-    background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
-    color: white;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    border: 1px solid #455a64;
+    background: #232f3e;
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border: 1px solid #37475a;
 }
 
 .step-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #ff9900, #ffcc00);
+    background: #ff9900;
     color: #000000;
     border-radius: 50%;
     font-size: 1.3rem;
     font-weight: bold;
     line-height: 50px;
     margin: 0 auto 1.2rem;
-    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
 }
 
 .step h4 {
@@ -344,33 +329,30 @@ header p {
     font-size: 0.9rem;
 }
 
-/* Footer - Dark Theme */
+/* Footer */
 footer {
-    background: linear-gradient(135deg, #131a22 0%, #232f3e 100%);
-    color: white;
+    background: #131a22;
+    color: #cccccc;
     padding: 2.5rem 0 1rem;
     margin-top: 3rem;
-    border-top: 2px solid #ff9900;
+    border-top: 1px solid #37475a;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
     margin-bottom: 2rem;
-    padding: 0 1rem;
 }
 
 .footer-section h4 {
     color: #ff9900;
     margin-bottom: 1rem;
     font-size: 1.1rem;
-    font-weight: bold;
 }
 
 .footer-section p {
     margin-bottom: 0.5rem;
-    color: #cccccc;
     font-size: 0.9rem;
 }
 
@@ -392,7 +374,7 @@ footer {
 .copyright {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid #37475a;
     color: #999999;
     font-size: 0.9rem;
 }
@@ -404,7 +386,7 @@ footer {
     }
     
     header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .categories {
@@ -447,7 +429,7 @@ footer {
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
     }
     
     .categories h2 {
@@ -466,7 +448,7 @@ footer {
         padding: 1.2rem;
     }
     
-    .step {
-        padding: 1.5rem 1rem;
+    .product-price {
+        font-size: 1.3rem;
     }
 }
