@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMU Online Store - Arba Minch University</title>
+    <title>AMU Online Store - Mobile Optimized</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +12,6 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <!-- CIRCLE LOGO -->
             <img src="https://github.com/abrham-eagle/amu-online-shopping-/blob/main/logo.png?raw=true" alt="AMU Store Logo" class="logo circle-logo">
             <h1><i class="fas fa-shopping-bag"></i> AMU Online Store</h1>
             <p>Arba Minch University's Premier Shopping Destination</p>
@@ -99,14 +98,14 @@
                 <h2 id="categoryTitle">Products</h2>
             </div>
 
-            <!-- SEARCH BAR ADDED HERE -->
+            <!-- Search Bar -->
             <div class="search-container">
-                <input type="text" id="productSearch" placeholder="🔍 Search products in this category..." class="search-input">
+                <input type="text" id="productSearch" placeholder="🔍 Search products..." class="search-input">
                 <button onclick="searchProducts()" class="search-button">Search</button>
             </div>
 
             <div class="product-grid" id="productGrid">
-                <!-- Products will be loaded here by JavaScript -->
+                <!-- Products loaded by JavaScript -->
             </div>
         </div>
     </section>
@@ -173,9 +172,9 @@
             <div class="gallery-container">
                 <img id="galleryImage" src="" alt="Product Image">
                 <div class="gallery-controls">
-                    <button onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i> Previous</button>
+                    <button onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></button>
                     <span id="imageCounter">1/3</span>
-                    <button onclick="changeImage(1)">Next <i class="fas fa-chevron-right"></i></button>
+                    <button onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></button>
                 </div>
                 <div class="gallery-product-info">
                     <h3 id="galleryProductName"></h3>
@@ -190,7 +189,7 @@
     </div>
 
     <script>
-        // Sample product data with MULTIPLE IMAGES
+        // Sample product data
         const products = {
             electronics: [
                 { 
@@ -199,20 +198,9 @@
                     price: "Birr 459.99", 
                     images: [
                         "https://via.placeholder.com/600x600/3498db/white?text=Earbuds+Front",
-                        "https://via.placeholder.com/600x600/2980b9/white?text=Earbuds+Side",
-                        "https://via.placeholder.com/600x600/34495e/white?text=Earbuds+Case"
+                        "https://via.placeholder.com/600x600/2980b9/white?text=Earbuds+Side"
                     ], 
                     desc: "High-quality sound wireless earbuds" 
-                },
-                { 
-                    code: "E002", 
-                    name: "Power Bank", 
-                    price: "Birr 299.99", 
-                    images: [
-                        "https://via.placeholder.com/600x600/e74c3c/white?text=Power+Bank+Front",
-                        "https://via.placeholder.com/600x600/c0392b/white?text=Power+Bank+Back"
-                    ], 
-                    desc: "10000mAh fast charging power bank" 
                 }
             ],
             boys: [
@@ -225,16 +213,6 @@
                         "https://via.placeholder.com/600x600/8e44ad/white?text=T-Shirt+Back"
                     ], 
                     desc: "100% cotton comfortable t-shirt" 
-                },
-                { 
-                    code: "B002", 
-                    name: "Sports Shoes", 
-                    price: "Birr 799.99", 
-                    images: [
-                        "https://via.placeholder.com/600x600/f39c12/white?text=Shoes+Front",
-                        "https://via.placeholder.com/600x600/e67e22/white?text=Shoes+Side"
-                    ], 
-                    desc: "Lightweight sports running shoes" 
                 }
             ],
             girls: [
@@ -299,24 +277,23 @@
 
         function showProducts(category) {
             const categoryTitles = {
-                electronics: "<i class='fas fa-mobile-alt'></i> Electronics Center",
-                boys: "<i class='fas fa-tshirt'></i> Boys Fashion",
-                girls: "<i class='fas fa-heart'></i> Girls Fashion",
-                laptops: "<i class='fas fa-laptop'></i> Laptop & Computer",
-                home: "<i class='fas fa-home'></i> Home Essentials",
-                campus: "<i class='fas fa-book'></i> Campus Supplies"
+                electronics: "Electronics Center",
+                boys: "Boys Fashion",
+                girls: "Girls Fashion",
+                laptops: "Laptop & Computer",
+                home: "Home Essentials",
+                campus: "Campus Supplies"
             };
 
-            document.getElementById('categoryTitle').innerHTML = categoryTitles[category];
+            document.getElementById('categoryTitle').textContent = categoryTitles[category];
             document.getElementById('productsSection').classList.remove('hidden');
             document.querySelector('.categories').classList.add('hidden');
             document.querySelector('.how-to-order').classList.add('hidden');
 
-            // Store current category products for search
             currentCategoryProducts = products[category];
-            
             displayProducts(currentCategoryProducts);
 
+            // Smooth scroll to products
             setTimeout(() => {
                 document.getElementById('productsSection').scrollIntoView({
                     behavior: 'smooth',
@@ -341,7 +318,7 @@
                         <p class="product-desc">${product.desc}</p>
                         <p class="product-price">${product.price}</p>
                         <div class="buy-instruction">
-                            <strong><i class="fas fa-info-circle"></i> Remember this code: ${product.code}</strong>
+                            <strong>Remember code: ${product.code}</strong>
                         </div>
                         <a href="https://t.me/AMUonlinestore_bot?start=${product.code}" class="buy-button" target="_blank">
                             <i class="fas fa-shopping-cart"></i> Buy Now
@@ -443,6 +420,24 @@
                 }
             }
         });
+
+        // Touch swipe for gallery
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.getElementById('galleryImage').addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.getElementById('galleryImage').addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX) changeImage(1); // Swipe left
+            if (touchEndX > touchStartX) changeImage(-1); // Swipe right
+        }
     </script>
 </body>
 </html>
