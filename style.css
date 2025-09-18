@@ -18,41 +18,38 @@ body {
     padding: 0 20px;
 }
 
-/* Header - With CIRCLE LOGO */
+/* Header - Mobile Optimized */
 header {
     background: #131a22;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     text-align: center;
     border-bottom: 1px solid #37475a;
 }
 
-/* CIRCLE LOGO STYLES */
 .circle-logo {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #ff9900;
-    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
-    margin-bottom: 1rem;
+    border: 3px solid #ff9900;
+    margin-bottom: 0.5rem;
 }
 
 header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
     color: #ff9900;
-    font-weight: bold;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #cccccc;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Categories Section */
+/* Categories Section - Mobile First */
 .categories {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background: #131a22;
     margin: 1rem;
     border-radius: 8px;
@@ -61,81 +58,72 @@ header p {
 
 .categories h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
     color: #ff9900;
 }
 
 .categories > .container > p {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #cccccc;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .category-card {
     background: #232f3e;
     color: #ffffff;
-    padding: 2rem 1.5rem;
-    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1px solid #37475a;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(255, 153, 0, 0.2);
+    transform: translateY(-3px);
     border-color: #ff9900;
 }
 
 .category-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.2rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     color: #ff9900;
 }
 
 .category-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
     color: #ffffff;
 }
 
 .category-card p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     color: #cccccc;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .category-btn {
     background: #ff9900;
     color: #000000;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 20px;
     font-weight: bold;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-size: 0.8rem;
     display: inline-block;
-}
-
-.category-card:hover .category-btn {
-    background: #ffaa33;
-    transform: translateX(5px);
 }
 
 /* Products Section */
 .products {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background: #131a22;
     margin: 1rem;
     border-radius: 8px;
@@ -150,7 +138,7 @@ header p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #37475a;
 }
@@ -158,193 +146,150 @@ header p {
 .back-btn {
     background: #ff9900;
     color: #000000;
-    padding: 12px 24px;
+    padding: 10px 16px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .back-btn:hover {
     background: #ffaa33;
-    transform: translateX(-3px);
 }
 
 #categoryTitle {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     color: #ff9900;
-    font-weight: bold;
 }
 
-/* Search Bar in Products Section */
+/* Search Bar */
 .search-container {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     display: flex;
     justify-content: center;
-    max-width: 600px;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .search-input {
-    padding: 12px 20px;
+    padding: 12px 16px;
     border: 2px solid #37475a;
     border-radius: 25px 0 0 25px;
     font-size: 1rem;
     width: 70%;
-    outline: none;
     background: #232f3e;
     color: #ffffff;
 }
 
 .search-button {
-    padding: 12px 25px;
+    padding: 12px 20px;
     background: #ff9900;
     color: #000000;
     border: none;
     border-radius: 0 25px 25px 0;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s;
 }
 
-.search-button:hover {
-    background: #ffaa33;
-}
-
+/* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .product-card {
     background: #232f3e;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
     border: 1px solid #37475a;
+    transition: transform 0.3s ease;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(255, 153, 0, 0.2);
-    border-color: #ff9900;
+    transform: translateY(-3px);
 }
 
 .product-image {
     cursor: pointer;
-    position: relative;
 }
 
 .product-image img {
     width: 100%;
-    height: 220px;
+    height: 180px;
     object-fit: cover;
     border-bottom: 1px solid #37475a;
-    transition: transform 0.3s;
-}
-
-.product-image:hover img {
-    transform: scale(1.05);
-}
-
-.product-image::after {
-    content: 'Click to view';
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.product-image:hover::after {
-    opacity: 1;
 }
 
 .product-info {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .product-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
     color: #ffffff;
-    font-weight: bold;
 }
 
 .product-code {
     color: #cccccc;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     font-size: 0.9rem;
 }
 
 .code-highlight {
     background: #ff9900;
     color: #000000;
-    padding: 4px 10px;
-    border-radius: 12px;
+    padding: 3px 8px;
+    border-radius: 10px;
     font-weight: bold;
-    font-size: 0.85rem;
 }
 
 .product-desc {
     color: #aaaaaa;
-    margin-bottom: 1.2rem;
-    line-height: 1.5;
+    margin-bottom: 1rem;
     font-size: 0.9rem;
 }
 
 .product-price {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #ff9900;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .buy-instruction {
     background: #37475a;
     color: #ffffff;
-    padding: 12px;
+    padding: 10px;
     border-radius: 6px;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     text-align: center;
-    font-size: 0.9rem;
-    border-left: 4px solid #ff9900;
+    font-size: 0.8rem;
 }
 
 .buy-button {
     display: block;
     background: #ff9900;
     color: #000000;
-    padding: 14px 20px;
+    padding: 12px 16px;
     text-decoration: none;
     border-radius: 20px;
     text-align: center;
     font-weight: bold;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .buy-button:hover {
     background: #ffaa33;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
 }
 
-/* How to Order Section */
+/* How to Order */
 .how-to-order {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background: #131a22;
     margin: 1rem;
     border-radius: 8px;
@@ -353,86 +298,83 @@ header p {
 
 .how-to-order h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
     color: #ff9900;
 }
 
 .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
 
 .step {
     text-align: center;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
     background: #232f3e;
     color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-radius: 12px;
     border: 1px solid #37475a;
 }
 
 .step-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: #ff9900;
     color: #000000;
     border-radius: 50%;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: bold;
-    line-height: 50px;
-    margin: 0 auto 1.5rem;
+    line-height: 40px;
+    margin: 0 auto 1rem;
 }
 
 .step h4 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
 }
 
 .step p {
-    opacity: 0.9;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    color: #cccccc;
 }
 
 /* Footer */
 footer {
     background: #131a22;
     color: white;
-    padding: 3rem 0 1rem;
-    margin-top: 4rem;
+    padding: 2rem 0 1rem;
+    margin-top: 2rem;
     border-top: 1px solid #37475a;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .footer-section h4 {
     color: #ff9900;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
 }
 
 .footer-section p {
-    margin-bottom: 0.5rem;
-    opacity: 0.9;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
 }
 
 .social-links {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .social-links a {
     color: #cccccc;
-    font-size: 1.5rem;
-    transition: color 0.3s;
+    font-size: 1.2rem;
 }
 
 .social-links a:hover {
@@ -441,12 +383,12 @@ footer {
 
 .copyright {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid #37475a;
-    opacity: 0.8;
+    font-size: 0.8rem;
 }
 
-/* Product Gallery Modal */
+/* Modal Gallery */
 .modal {
     display: none;
     position: fixed;
@@ -456,41 +398,24 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.95);
-    animation: fadeIn 0.3s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .modal-content {
     position: relative;
-    margin: 2% auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 800px;
-    animation: slideIn 0.3s;
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    margin: 5% auto;
+    padding: 15px;
+    width: 95%;
+    max-width: 500px;
 }
 
 .close {
     position: absolute;
-    top: -40px;
+    top: -35px;
     right: 0;
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 1001;
-}
-
-.close:hover {
-    color: #ff9900;
 }
 
 .gallery-container {
@@ -502,16 +427,15 @@ footer {
 
 #galleryImage {
     width: 100%;
-    max-height: 60vh;
+    max-height: 50vh;
     object-fit: contain;
-    display: block;
 }
 
 .gallery-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 12px 15px;
     background: #232f3e;
     border-top: 1px solid #37475a;
 }
@@ -520,15 +444,10 @@ footer {
     background: #ff9900;
     color: #000;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s;
-}
-
-.gallery-controls button:hover {
-    background: #ffaa33;
 }
 
 #imageCounter {
@@ -537,29 +456,30 @@ footer {
 }
 
 .gallery-product-info {
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     background: #232f3e;
 }
 
 .gallery-product-info h3 {
     color: #ff9900;
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
 }
 
 .gallery-product-info p {
     color: #cccccc;
     margin-bottom: 5px;
+    font-size: 0.9rem;
 }
 
 .gallery-instruction {
     background: #37475a;
     color: #ffffff;
-    padding: 12px;
+    padding: 10px;
     border-radius: 6px;
-    margin-top: 15px;
-    border-left: 4px solid #ff9900;
+    margin-top: 10px;
+    font-size: 0.8rem;
 }
 
 /* Responsive Design */
@@ -569,17 +489,17 @@ footer {
     }
 
     header h1 {
-        font-size: 2.2rem;
+        font-size: 1.5rem;
     }
 
     .circle-logo {
-        height: 80px;
-        width: 80px;
+        height: 70px;
+        width: 70px;
     }
 
     .categories {
-        margin: 1rem;
-        padding: 2rem 0;
+        margin: 0.5rem;
+        padding: 1.5rem 0;
     }
 
     .category-grid {
@@ -587,8 +507,8 @@ footer {
     }
 
     .products {
-        margin: 1rem;
-        padding: 2rem 0;
+        margin: 0.5rem;
+        padding: 1.5rem 0;
     }
 
     .section-header {
@@ -603,13 +523,13 @@ footer {
     }
 
     .search-input {
-        border-radius: 25px;
+        border-radius: 20px;
         margin-bottom: 0.5rem;
         width: 100%;
     }
 
     .search-button {
-        border-radius: 25px;
+        border-radius: 20px;
         width: 100%;
     }
 
@@ -631,34 +551,43 @@ footer {
     }
 
     .modal-content {
-        margin: 5% auto;
-        width: 95%;
+        margin: 10% auto;
+        width: 98%;
+        padding: 10px;
     }
     
     .gallery-controls {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
     
     #galleryImage {
-        max-height: 50vh;
+        max-height: 40vh;
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
     }
+    
     .categories h2 {
-        font-size: 2.2rem;
+        font-size: 1.5rem;
     }
+    
     #categoryTitle {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
+    
     .category-card {
-        padding: 2rem 1.5rem;
+        padding: 1.2rem 0.8rem;
     }
+    
     .product-info {
-        padding: 1.5rem;
+        padding: 0.8rem;
+    }
+    
+    .product-info h3 {
+        font-size: 1rem;
     }
 }
